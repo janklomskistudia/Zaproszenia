@@ -97,11 +97,15 @@ function loginUser(code) {
         loaderContainer.style.display = 'block';
 
         const stages = [
-            { p: 20, t: "BYPASSING FIREWALL..." },
-            { p: 45, t: "DECRYPTING RSA_2048..." },
-            { p: 70, t: "EXTRACTING PROFILE: " + guestList[code].name.toUpperCase() },
-            { p: 90, t: "STABILIZING CONNECTION..." },
-            { p: 100, t: "ACCESS GRANTED!" }
+            { p: 5, t: "ŁĄCZENIE Z SERWEREM PROXY...", d: 1000 },
+            { p: 15, t: "OMIJANIE ZAPORY FIREWALL...", d: 1500 },
+            { p: 30, t: "PRZECHWYTYWANIE PAKIETÓW...", d: 800 },
+            { p: 45, t: "DEKRYPCJA KLUCZA RSA_4096...", d: 2000 },
+            { p: 48, t: "BŁĄD SUMY KONTROLNEJ! PONAWIANIE...", d: 1200, color: "#ff3333" },
+            { p: 65, t: "SYNCHRONIZACJA BAZY DANYCH...", d: 1500, color: "#00ff46" },
+            { p: 85, t: "POBIERANIE AKT AGENTA: " + guestList[code].name.toUpperCase(), d: 1500 },
+            { p: 95, t: "FINALIZOWANIE SESJI...", d: 1000 },
+            { p: 100, t: "DOSTĘP PRZYZNANY!", d: 500 }
         ];
 
         let currentStage = 0;
@@ -110,6 +114,9 @@ function loginUser(code) {
             if (currentStage < stages.length) {
                 loaderBar.style.width = stages[currentStage].p + "%";
                 loaderStatus.innerText = stages[currentStage].t;
+                loaderStatus.innerText = stages[currentStage].t;
+                loaderStatus.style.color = stages[currentStage].color || "#00ff46";
+                loaderBar.style.backgroundColor = stages[currentStage].color || "#00ff46";
                 currentStage++;
             } else {
                 clearInterval(interval);
@@ -132,10 +139,18 @@ function loginUser(code) {
 
 function showInvitation(code) {
     const user = guestList[code];
-    document.getElementById('welcome-text').innerText = `Witaj agencie ${user.name}!`;
-    // Po zalogowaniu odpalamy deszyfrowanie tytułu i wartości
-    setTimeout(() => decryptEffect('briefing-title', "> BRIEFING OPERACYJNY"), 500);
-    // Możesz dodać ID do wartości i deszyfrować je po kolei
+    const welcomeElement = document.getElementById('welcome-text');
+
+    // Tworzymy wieloliniowy tekst powitalny
+    const coolGreeting = `[SYSTEM]: ZALOGOWANO POMYŚLNIE\n[AGENT]: ${user.name.toUpperCase()}\n[UPRAWNIENIA]: POZIOM 5`;
+
+    // Ustawiamy białe znaki, żeby \n działało w HTML
+    welcomeElement.style.whiteSpace = "pre-line";
+
+    // Odpalamy efekt deszyfrowania dla całego bloku
+    decryptEffect('welcome-text', coolGreeting);
+
+    // Reszta Twojego kodu...
     document.getElementById('login-section').style.display = 'none';
     document.getElementById('invitation-section').style.display = 'block';
 }
@@ -217,4 +232,30 @@ function decryptEffect(elementId, finalText) {
         if (iteration >= finalText.length) clearInterval(interval);
         iteration += 1 / 3;
     }, 30);
+}
+
+
+function playHackSound(type) {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    if (type === 'beep') {
+        oscillator.type = 'square'; // Kwadratowa fala brzmi jak stary komputer
+        oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        oscillator.start();
+        gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.1);
+        oscillator.stop(audioCtx.currentTime + 0.1);
+    } else if (type === 'error') {
+        oscillator.type = 'sawtooth';
+        oscillator.frequency.setValueAtTime(150, audioCtx.currentTime);
+        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        oscillator.start();
+        gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.5);
+        oscillator.stop(audioCtx.currentTime + 0.5);
+    }
 }
