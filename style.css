@@ -1,0 +1,114 @@
+/* Import eleganckiego fontu z Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+/* Kontener główny dla obu sekcji */
+#login-section,
+#invitation-section {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    animation: fadeIn 0.8s ease-out;
+    margin-top: 10px;
+}
+
+/* Nagłówki */
+h1 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Input do logowania */
+input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    margin-top: 5px;
+    border: 2px solid #eee;
+    border-radius: 30px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #a1c4fd;
+}
+
+/* Przycisk */
+button {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    background: #34495e;
+    transform: translateY(-2px);
+}
+
+/* Zdjęcie personalizowane */
+#user-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin: 20px 0;
+    object-fit: cover;
+    border: 5px solid #f9f9f9;
+}
+
+/* Mapa */
+#map-section {
+    margin-top: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+/* Animacja wejścia */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsywność dla małych ekranów */
+@media (max-width: 480px) {
+
+    #login-section,
+    #invitation-section {
+        padding: 25px;
+    }
+}
