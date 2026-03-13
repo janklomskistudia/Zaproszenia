@@ -95,7 +95,7 @@ function loginUser(code) {
 
 function showInvitation(code) {
     const user = guestList[code];
-    document.getElementById('welcome-text').innerText = `Cześć ${user.name}!`;
+    document.getElementById('welcome-text').innerText = `Witaj agencie ${user.name}!`;
     // Po zalogowaniu odpalamy deszyfrowanie tytułu i wartości
     setTimeout(() => decryptEffect('briefing-title', "> BRIEFING OPERACYJNY"), 500);
     // Możesz dodać ID do wartości i deszyfrować je po kolei
