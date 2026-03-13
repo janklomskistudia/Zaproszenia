@@ -1,4 +1,4 @@
-/* Import eleganckiego fontu z Google Fonts */
+/* Import fontów - bez zmian */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
 
 * {
@@ -9,33 +9,66 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-color: black;
+    /* Czarne tło jako podkład dla Matrixa */
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #333;
+    color: #eee;
+    overflow: hidden;
+    /* Zapobiega scrollbarom w tle */
 }
 
-/* Kontener główny dla obu sekcji */
+/* --- KOD DLA CANVAS (MATRIX) --- */
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Canvas musi być pod spodem wszystkiego */
+}
+
+/* --- KONTENER GŁÓWNY DLA LOGOWANIA I ZAPROSZENIA --- */
 #login-section,
 #invitation-section {
-    background: white;
+    background: rgba(10, 10, 10, 0.9);
+    /* Półprzezroczyste, bardzo ciemne tło */
     padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    /* Nieco mniejszy promień dla bardziej "technicznego" wyglądu */
+    box-shadow: 0 0 20px rgba(0, 255, 70, 0.3);
+    /* Zielona poświata */
     text-align: center;
     max-width: 450px;
     width: 90%;
     animation: fadeIn 0.8s ease-out;
-    margin-top: 10px;
+    border: 1px solid #00ff46;
+    /* Cienka zielona ramka */
+    z-index: 10;
+    /* Musi być na wierzchu */
 }
 
 /* Nagłówki */
 h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
+    /* Zmieniony na bardziej techniczny */
+    font-weight: 700;
     margin-bottom: 20px;
-    color: #2c3e50;
+    color: #00ff46;
+    /* Neonowy zielony */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Tekst powitalny w zaproszeniu - może być bardziej elegancki */
+#welcome-text {
+    font-family: 'Playfair Display', serif;
+    text-transform: none;
+    letter-spacing: normal;
+    color: white;
 }
 
 /* Input do logowania */
@@ -43,55 +76,64 @@ input[type="text"] {
     width: 100%;
     padding: 12px 20px;
     margin: 20px 0;
-    margin-top: 5px;
-    border: 2px solid #eee;
-    border-radius: 30px;
+    border: 2px solid #333;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Ciemny, przezroczysty input */
+    color: #00ff46;
+    border-radius: 5px;
     outline: none;
     font-size: 16px;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: monospace;
+    /* Styl koderski */
 }
 
 input[type="text"]:focus {
-    border-color: #a1c4fd;
+    border-color: #00ff46;
+    box-shadow: 0 0 10px rgba(0, 255, 70, 0.5);
 }
 
 /* Przycisk */
 button {
-    background: #2c3e50;
-    color: white;
-    border: none;
+    background: transparent;
+    color: #00ff46;
+    border: 2px solid #00ff46;
     padding: 12px 30px;
-    border-radius: 30px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 700;
-    transition: transform 0.2s, background 0.3s;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    letter-spacing: 1px;
 }
 
 button:hover {
-    background: #34495e;
-    transform: translateY(-2px);
+    background: #00ff46;
+    color: black;
+    box-shadow: 0 0 15px rgba(0, 255, 70, 0.7);
 }
 
-/* Zdjęcie personalizowane */
+/* Zdjęcie personalizowane - dodana zielona poświata */
 #user-photo {
     width: 100%;
     height: auto;
-    border-radius: 15px;
+    border-radius: 5px;
     margin: 20px 0;
     object-fit: cover;
-    border: 5px solid #f9f9f9;
+    border: 2px solid #00ff46;
+    box-shadow: 0 0 15px rgba(0, 255, 70, 0.3);
 }
 
-/* Mapa */
+/* Mapa - drobna korekta kolorów */
 #map-section {
     margin-top: 30px;
-    border-radius: 15px;
+    border-radius: 5px;
     overflow: hidden;
-    border: 1px solid #eee;
+    border: 2px solid #00ff46;
 }
 
-/* Animacja wejścia */
+/* Animacja wejścia - bez zmian */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -104,7 +146,7 @@ button:hover {
     }
 }
 
-/* Responsywność dla małych ekranów */
+/* Responsywność - bez zmian */
 @media (max-width: 480px) {
 
     #login-section,
