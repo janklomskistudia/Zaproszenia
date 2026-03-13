@@ -79,17 +79,54 @@ function checkLogin() {
 
 function loginUser(code) {
     const errorMsg = document.getElementById('error-msg');
+    const loginContent = document.querySelector('#login-section h1, #login-section input, #login-section button');
+    const loaderContainer = document.getElementById('loader-container');
+    const loaderBar = document.getElementById('loader-bar');
+    const loaderStatus = document.getElementById('loader-status');
 
     if (guestList[code]) {
         localStorage.setItem('guestCode', code);
-        showInvitation(code);
-        if (!sessionStorage.getItem('confettiDone')) {
-            launchConfetti();
-            sessionStorage.setItem('confettiDone', 'true');
-        }
+
+        // Ukrywamy błąd i inputy
+        if (errorMsg) errorMsg.style.display = 'none';
+        document.getElementById('passcode').style.display = 'none';
+        document.querySelector('#login-section button').style.display = 'none';
+        document.querySelector('#login-section h1').innerText = "DOSTĘP AUTORYZOWANY";
+
+        // Pokazujemy loader
+        loaderContainer.style.display = 'block';
+
+        const stages = [
+            { p: 20, t: "BYPASSING FIREWALL..." },
+            { p: 45, t: "DECRYPTING RSA_2048..." },
+            { p: 70, t: "EXTRACTING PROFILE: " + guestList[code].name.toUpperCase() },
+            { p: 90, t: "STABILIZING CONNECTION..." },
+            { p: 100, t: "ACCESS GRANTED!" }
+        ];
+
+        let currentStage = 0;
+
+        const interval = setInterval(() => {
+            if (currentStage < stages.length) {
+                loaderBar.style.width = stages[currentStage].p + "%";
+                loaderStatus.innerText = stages[currentStage].t;
+                currentStage++;
+            } else {
+                clearInterval(interval);
+                // Dopiero po zakończeniu animacji pokazujemy zaproszenie
+                setTimeout(() => {
+                    showInvitation(code);
+                    if (!sessionStorage.getItem('confettiDone')) {
+                        launchConfetti();
+                        sessionStorage.setItem('confettiDone', 'true');
+                    }
+                }, 500);
+            }
+        }, 600); // Co 0.6 sekundy kolejna faza
+
     } else {
         if (errorMsg) errorMsg.style.display = 'block';
-        codeInput.style.borderColor = 'red';
+        document.getElementById('passcode').style.borderColor = 'red';
     }
 }
 

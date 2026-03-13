@@ -16,6 +16,16 @@
         <input type="text" id="passcode" placeholder="Twój kod...">
         <button onclick="checkLogin()">Wejdź</button>
         <p id="error-msg" style="color: red; display: none;">Nieprawidłowy kod!</p>
+        <div id="loader-container" style="display: none; margin-top: 20px;">
+            <div id="loader-status"
+                style="font-family: monospace; color: #00ff46; font-size: 14px; margin-bottom: 5px;">
+                INICJOWANIE POŁĄCZENIA...
+            </div>
+            <div style="width: 100%; border: 1px solid #00ff46; height: 10px; border-radius: 5px; overflow: hidden;">
+                <div id="loader-bar"
+                    style="width: 0%; height: 100%; background-color: #00ff46; box-shadow: 0 0 10px #00ff46;"></div>
+            </div>
+        </div>
     </div>
 
     <div id="invitation-section" style="display: none;">
@@ -26,7 +36,7 @@
 
             <div class="detail-row">
                 <span class="label">KRYPTONIM:</span>
-                <span class="value">URODZINY_JK_2026</span>
+                <span class="value">URODZINY_JK</span>
             </div>
 
             <div class="detail-row">
