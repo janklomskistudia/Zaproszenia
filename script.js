@@ -1,3 +1,12 @@
+// --- TWOJA BAZA DANYCH (BEZ ZMIAN) ---
+const guestList = {
+    "kuba123": { name: "Kuba" },
+    "ania789": { name: "Ania" },
+    // ...
+};
+
+
+
 // --- KOD EFEKTU MATRIX (CANVAS) ---
 function runMatrixEffect() {
     const canvas = document.getElementById('matrix-canvas');
@@ -61,14 +70,6 @@ function runMatrixEffect() {
     });
 }
 
-
-// --- TWOJA BAZA DANYCH (BEZ ZMIAN) ---
-const guestList = {
-    "kuba123": { name: "Kuba", photo: "images/kuba.jpg" },
-    "ania789": { name: "Ania", photo: "images/ania.png" },
-    // ...
-};
-
 // --- LOGIKA LOGOWANIA (BEZ ZMIAN) ---
 function checkLogin() {
     const codeInput = document.getElementById('passcode');
@@ -95,8 +96,9 @@ function loginUser(code) {
 function showInvitation(code) {
     const user = guestList[code];
     document.getElementById('welcome-text').innerText = `Cześć ${user.name}!`;
-    document.getElementById('user-photo').src = user.photo;
-
+    // Po zalogowaniu odpalamy deszyfrowanie tytułu i wartości
+    setTimeout(() => decryptEffect('briefing-title', "> BRIEFING OPERACYJNY"), 500);
+    // Możesz dodać ID do wartości i deszyfrować je po kolei
     document.getElementById('login-section').style.display = 'none';
     document.getElementById('invitation-section').style.display = 'block';
 }
@@ -137,3 +139,45 @@ function launchConfetti() {
 }
 
 window.onload = init;
+
+function sendRSVP(decision) {
+    const userCode = localStorage.getItem('guestCode');
+
+    // Zastąp te dane swoimi:
+    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSdU1ZM-U0bcX5gb89k-cbU8Av3dy9xJKD5u7rvQ67sNv31JBg/formResponse";
+    const entryCodeID = "entry.1911346163";  // ID z Twojego screena dla pola KOD
+    const entryStatusID = "entry.855752844"; // ID z Twojego screena dla pola STATUS
+
+    const formData = new FormData();
+    formData.append(entryCodeID, userCode);
+    formData.append(entryStatusID, decision);
+
+    fetch(formURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+    }).then(() => {
+        // Zamiast alertu, zróbmy coś hakerskiego!
+        document.getElementById('rsvp-section').innerHTML = "<h2 style='color: #00ff46;'>STATUS: TRANSMISJA ZAKOŃCZONA. DO ZOBACZENIA!</h2>";
+    }).catch(err => {
+        console.error("Błąd transmisji:", err);
+    });
+}
+function decryptEffect(elementId, finalText) {
+    const chars = "!@#$%^&*()_+1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    let iteration = 0;
+
+    const interval = setInterval(() => {
+        element.innerText = finalText.split("")
+            .map((letter, index) => {
+                if (index < iteration) return finalText[index];
+                return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join("");
+
+        if (iteration >= finalText.length) clearInterval(interval);
+        iteration += 1 / 3;
+    }, 30);
+}

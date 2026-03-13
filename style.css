@@ -31,24 +31,41 @@ body {
     /* Canvas musi być pod spodem wszystkiego */
 }
 
-/* --- KONTENER GŁÓWNY DLA LOGOWANIA I ZAPROSZENIA --- */
+/* Dodajemy limit wysokości dla sekcji zaproszenia */
+/* Zmień ten fragment */
 #login-section,
 #invitation-section {
     background: rgba(10, 10, 10, 0.9);
-    /* Półprzezroczyste, bardzo ciemne tło */
     padding: 40px;
     border-radius: 10px;
-    /* Nieco mniejszy promień dla bardziej "technicznego" wyglądu */
     box-shadow: 0 0 20px rgba(0, 255, 70, 0.3);
-    /* Zielona poświata */
     text-align: center;
     max-width: 450px;
     width: 90%;
     animation: fadeIn 0.8s ease-out;
     border: 1px solid #00ff46;
-    /* Cienka zielona ramka */
     z-index: 10;
-    /* Musi być na wierzchu */
+
+    /* DODAJ TO: */
+    max-height: 85vh;
+    /* Maksymalna wysokość to 85% ekranu */
+    overflow-y: auto;
+    /* Włącza suwak */
+    position: relative;
+}
+
+/* Ulepszona stylizacja suwaka (żeby był widoczny) */
+#invitation-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+#invitation-section::-webkit-scrollbar-track {
+    background: #000;
+}
+
+#invitation-section::-webkit-scrollbar-thumb {
+    background: #00ff46;
+    border-radius: 4px;
 }
 
 /* Nagłówki */
@@ -109,28 +126,18 @@ button {
 }
 
 button:hover {
-    background: #00ff46;
-    color: black;
     box-shadow: 0 0 15px rgba(0, 255, 70, 0.7);
 }
 
-/* Zdjęcie personalizowane - dodana zielona poświata */
-#user-photo {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin: 20px 0;
-    object-fit: cover;
-    border: 2px solid #00ff46;
-    box-shadow: 0 0 15px rgba(0, 255, 70, 0.3);
-}
 
 /* Mapa - drobna korekta kolorów */
 #map-section {
     margin-top: 30px;
+    margin-bottom: 30px;
     border-radius: 5px;
     overflow: hidden;
     border: 2px solid #00ff46;
+
 }
 
 /* Animacja wejścia - bez zmian */
@@ -153,4 +160,49 @@ button:hover {
     #invitation-section {
         padding: 25px;
     }
+}
+
+#mission-details {
+    text-align: left;
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(0, 255, 70, 0.05);
+    border-left: 3px solid #00ff46;
+}
+
+#briefing-title {
+    font-size: 1.2rem;
+    color: #00ff46;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #00ff46;
+}
+
+.detail-row {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px dashed rgba(0, 255, 70, 0.2);
+    padding-bottom: 5px;
+}
+
+.label {
+    color: #888;
+    font-weight: bold;
+    font-size: 0.8rem;
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.value {
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+.briefing-text {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #00ff46;
+    opacity: 0.8;
 }

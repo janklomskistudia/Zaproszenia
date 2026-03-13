@@ -18,21 +18,60 @@
     </div>
 
     <div id="invitation-section" style="display: none;">
-        <h1 id="welcome-text">Cześć!</h1>
-        <p>Mamy przyjemność zaprosić Cię na nasze wydarzenie!</p>
+        <h1 id="welcome-text">Witaj!</h1>
+        <p>Mamy przyjemność zaprosić Cię na niezwykłe urodziny!</p>
+        <div id="mission-details">
+            <h2 id="briefing-title">> BRIEFING OPERACYJNY</h2>
 
-        <div id="photo-container">
-            <img id="user-photo" src="" alt="Twoje zdjęcie" style="max-width: 300px; border-radius: 15px;">
+            <div class="detail-row">
+                <span class="label">KRYPTONIM:</span>
+                <span class="value">URODZINY_JK_2026</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">CEL:</span>
+                <span class="value">ELIMINACJA NUDY / INTEGRACJA / TAŃCE</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">CZAS:</span>
+                <span class="value">11 KWIETNIA 2026, GODZ. 18:00</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">LOKALIZACJA:</span>
+                <span class="value">ŚWIETLICA JUSZKOWO (BAZA ALFA)</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">DRESSCODE:</span>
+                <span class="value">CASUAL / AGENT STYLE</span>
+            </div>
+
+            <div class="briefing-text">
+                <p>> NOTATKA: Wejście tylko za okazaniem kodu cyfrowego. Prowiant i uzbrojenie (dobry humor) zapewnione
+                    na miejscu.</p>
+            </div>
         </div>
 
         <div id="map-section">
-            <h3>Widzimy się tutaj:</h3>
+            <h3 style="color: #00ff46; margin-bottom: 10px;">> LOKALIZACJA BAZY:</h3>
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2324.7823!2d18.646!3d54.352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTRCsDIxJzA3LjIiTiAxOMKwMzgnNDUuNiJF!5e0!3m2!1spl!2spl!4v123456789"
-                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2330.5642131350014!2d18.5978442!3d54.25859570000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd716d38606629%3A0xee24f7d7a24826bb!2zxZp3aWV0bGljYSAiSnVzemtvd28i!5e0!3m2!1spl!2spl!4v1773399394461!5m2!1spl!2spl"
+                width="100%" height="250" style="border:0; filter: invert(90%) hue-rotate(90deg) brightness(0.8);"
+                allowfullscreen="" loading="lazy">
             </iframe>
         </div>
-        <button onclick="logout()" style="background: #c3cfe2; font-size: 12px; padding: 6px 10px; margin-top: 10px;">
+        <div id="rsvp-section">
+            <h3>CZY PRZYJMUJESZ ZAPROSZNIE?</h3>
+            <button onclick="sendRSVP('Będę')" style="background-color: #00ff46; color: black;">
+                POTWIERDZAM UDZIAŁ
+            </button>
+            <button onclick="sendRSVP('Nie będę')" style="border-color: #e74c3c; color: #e74c3c;">
+                REZYGNUJĘ
+            </button>
+        </div>
+        <button onclick="logout()" style="background: #000000; font-size: 12px; padding: 6px 10px; margin-top: 10px;">
             To nie Ty? Wyloguj
         </button>
     </div>
