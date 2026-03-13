@@ -123,6 +123,7 @@ button {
     text-transform: uppercase;
     transition: all 0.3s;
     letter-spacing: 1px;
+    margin: 2px;
 }
 
 button:hover {
