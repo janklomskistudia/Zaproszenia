@@ -133,7 +133,6 @@ function loginUser(code) {
             if (currentStage < stages.length) {
                 loaderBar.style.width = stages[currentStage].p + "%";
                 loaderStatus.innerText = stages[currentStage].t;
-                loaderStatus.innerText = stages[currentStage].t;
                 loaderStatus.style.color = stages[currentStage].color || "#00ff46";
                 loaderBar.style.backgroundColor = stages[currentStage].color || "#00ff46";
                 currentStage++;
@@ -235,16 +234,17 @@ function init() {
 
 // Funkcja konfetti - bez zmian
 function launchConfetti() {
-    // Może warto zmienić kolory konfetti na zielone/czarne dla klimatu?
-    confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#00ff46', '#111', '#fff']
-    });
+    if (typeof confetti === 'function') { // Sprawdza, czy biblioteka istnieje
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#00ff46', '#111', '#fff']
+        });
+    } else {
+        console.log("Biblioteka confetti nie została załadowana.");
+    }
 }
-const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSeZgySCSFoMG-Aq8JilGwshSpi7CDVWk_2inSZi_DOkScFK5g/formResponse";
-
 window.onload = init;
 
 function sendRSVP(decision) {
