@@ -1,8 +1,8 @@
 // --- TWOJA BAZA DANYCH (BEZ ZMIAN) ---
 const guestList = {
-    "kuba123": { name: "Kuba" },
-    "ania789": { name: "Ania" },
-    // ...
+    "kuba123": { name: "Kuba", task: "catering" },
+    "ania789": { name: "Ania", task: "fire" },
+    "marek456": { name: "Marek", task: "party" }
 };
 
 
@@ -142,7 +142,7 @@ function showInvitation(code) {
     const welcomeElement = document.getElementById('welcome-text');
 
     // Tworzymy wieloliniowy tekst powitalny
-    const coolGreeting = `[SYSTEM]: ZALOGOWANO POMYŚLNIE\n[AGENT]: ${user.name.toUpperCase()}\n[UPRAWNIENIA]: POZIOM 5`;
+    const coolGreeting = `[SYSTEM]: ZALOGOWANO POMYŚLNIE\n[AGENT]: ${user.name.toUpperCase()}\n`;
 
     // Ustawiamy białe znaki, żeby \n działało w HTML
     welcomeElement.style.whiteSpace = "pre-line";

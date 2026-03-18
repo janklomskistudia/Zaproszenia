@@ -10,14 +10,57 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: black;
-    /* Czarne tło jako podkład dla Matrixa */
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    /* Środkuje w poziomie */
     align-items: center;
+    /* Środkuje w pionie (na PC) */
     color: #eee;
-    overflow: hidden;
-    /* Zapobiega scrollbarom w tle */
+    overflow-x: hidden;
+    /* Blokuje tylko przewijanie na boki */
+}
+
+#login-section,
+#invitation-section {
+    background: rgba(10, 10, 10, 0.95);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 70, 0.3);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    border: 1px solid #00ff46;
+    z-index: 10;
+
+    /* TO WYŚRODKUJE KARTĘ NAWET GDY BODY MA FLEX-START */
+    margin: auto;
+}
+
+/* Responsywność - FIX DLA TELEFONÓW */
+@media (max-width: 480px) {
+    body {
+        /* Pozwalamy na przewijanie całego tła, jeśli karta jest za długa */
+        align-items: flex-start;
+        overflow-y: auto;
+        padding: 20px 0;
+    }
+
+    #login-section,
+    #invitation-section {
+        padding: 25px;
+        width: 95%;
+        /* Na komórce rezygnujemy ze sztywnej wysokości, 
+           żeby telefon sam obsłużył długość strony */
+        max-height: none;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Jeśli mapa była za wielka, zmniejszamy ją na mobile */
+    #map-section iframe {
+        height: 200px;
+    }
 }
 
 /* --- KOD DLA CANVAS (MATRIX) --- */
@@ -33,8 +76,7 @@ body {
 
 /* Dodajemy limit wysokości dla sekcji zaproszenia */
 /* Zmień ten fragment */
-#login-section,
-#invitation-section {
+#login-section {
     background: rgba(10, 10, 10, 0.9);
     padding: 40px;
     border-radius: 10px;
@@ -52,6 +94,29 @@ body {
     overflow-y: auto;
     /* Włącza suwak */
     position: relative;
+}
+
+#invitation-section {
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid #00ff46;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 70, 0.3);
+    padding: 30px;
+    /* Zamiast max-height: 85vh, dajemy: */
+    max-height: 92vh;
+    margin: 10px auto;
+    /* Mały margines góra/dół, żeby nie dotykało krawędzi ekranu */
+
+    width: 95%;
+    /* Trochę szerzej na telefonie */
+    max-width: 450px;
+
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    /* To naprawi problem z ucinaniem cienia i obramowania */
+    padding-bottom: 30px !important;
 }
 
 /* Ulepszona stylizacja suwaka (żeby był widoczny) */
@@ -154,12 +219,23 @@ button:hover {
     }
 }
 
-/* Responsywność - bez zmian */
 @media (max-width: 480px) {
+    body {
+        align-items: flex-start;
+        /* Pozycjonuje kartę od góry, a nie na środku */
+        overflow-y: auto;
+        /* Pozwala przewijać całą stronę, jeśli karta się nie mieści */
+        padding: 20px 0;
+        /* Dodaje margines, żeby karta nie dotykała krawędzi ekranu */
+    }
 
     #login-section,
     #invitation-section {
-        padding: 25px;
+        padding: 20px;
+        /* Nieco mniejszy padding na małych ekranach */
+        width: 95%;
+        max-height: none;
+        /* Na bardzo małych telefonach lepiej pozwolić karcie urosnąć i przewijać całe body */
     }
 }
 
@@ -229,4 +305,9 @@ button:hover {
     color: #00ff46;
     text-shadow: 0 0 8px rgba(0, 255, 70, 0.6);
     line-height: 1.4;
+}
+
+#rsvp-section {
+    margin-top: 40px;
+    padding-bottom: 20px;
 }
