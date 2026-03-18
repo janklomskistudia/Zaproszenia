@@ -6,24 +6,39 @@ const guestList = {
     "agatka526": { name: "Agata Kuczyńska", task: "jedzenie" },
     "macius2137": { name: "Maciej Wojtyła", task: "impreza" },
 
-
 };
 
 // --- SŁOWNIK ZADAŃ ---
 // Tu wpisujesz własne teksty. Jeśli ktoś ma mieć inne zadanie, dodaj tu nową linijkę.
 const taskDictionary = {
     "ognisko": {
-        desc: "[SEKCJA: PIROTECHNIKA]\nZadbaj o podpałkę i bezpieczeństwo strefy ognia.",
-        contact: "KPT. JAN"
+        desc: "[SEKCJA: PIROTECHNIKA]\n21 wiek a my dalej w erze gdzie gdzie jedzenie robimy na ognisku. Pomóż cywilizowanym ludziom zrobić spaloną kiełbaskę. Pamiętaj o zachowaniu zasad BHP",
+        contact: "KRZYSZTOF KŁOMSKI"
+    },
+    "zaopatrzenie": {
+        desc: "[SEKCJA: ZAOPATRZENIOWA]\nSam Jezus jak się skończyło wino to musiał coś z tym zrobić. Stoły nie mogą być puste. Zapewnij by na stołach nie brakowało zaopatrzenia (zaopatrzenie będzie zapewnione)",
+        contact: "AGATA KUCZYŃSKA"
     },
     "jedzenie": {
-        desc: "[SEKCJA: CATERING]\nPomoc przy rozstawianiu prowiantu w sektorze B.",
-        contact: "SIERŻ. MAREK"
+        desc: "[SEKCJA: JEDZONKO]\nNie samym chlebem (i kiełbasą) żyje człowiek. Prośba by w ramach prezentu zrobić jedną miskę jakiejś prostej sałatki / blaszkę ciasta dla urozmaicenia diety biesiadników",
+        contact: "AGATA KUCZYŃSKA"
     },
     "impreza": {
-        desc: "[SEKCJA: MORALE]\nTwoim zadaniem jest pilnowanie głośności i playlisty.",
-        contact: "AGENT X"
-    }
+        desc: "[SEKCJA: OBROŃCÓW IMPREZY]\nTwoim zadaniem jest pilnowanie głośności i playlisty. Zabwianie gości to nasz piorytet!",
+        contact: "MACIEK WOJTYŁA"
+    },
+    "naglosnienie": {
+        desc: "[SEKCJA: ŁUBUDUBU]\nDobra muzyka i światło to podstawa. Reszte zostawiam w waszych rękach",
+        contact: "MARCIN HORODECKI"
+    },
+    "dokumentacja": {
+        desc: "[SEKCJA: ARCHIWUM]\nTwoim zadaniem jest przechwytywanie obrazu. Rób zdjęcia, nagrywaj dowody zabawy. Pamiętaj: co wydarzyło się w Bazie Alfa, zostaje w chmurze (którą udostępnimy po misji).",
+        contact: "?"
+    },
+    "porzadkowi": {
+        desc: "[SEKCJA: CZYSZCZENIE ŚLADÓW]\nOperacja musi pozostać nieuchwytna. Twoim zadaniem jest dbanie o to, by puste opakowania trafiały do czarnych worków w sektorze G. Po zakończeniu misji pomoc w przywróceniu Bazy Alfa do stanu pierwotnego.",
+        contact: "?"
+    },
 };
 
 
@@ -41,7 +56,6 @@ function runMatrixEffect() {
     // const characters = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZQWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
     const charArray = characters.split('');
-
     const fontSize = 16;
     const columns = canvas.width / fontSize; // Liczba kolumn znaków
 

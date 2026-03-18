@@ -402,3 +402,26 @@ button:hover {
     font-weight: bold;
     font-family: monospace;
 }
+
+#manual-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #00ff46;
+    color: #00ff46;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+}
+
+#manual-btn:hover {
+    background: rgba(0, 255, 70, 0.2);
+    box-shadow: 0 0 10px #00ff46;
+}
+
+#manual-content ul li {
+    margin-bottom: 8px;
+    border-left: 2px solid #00ff46;
+    padding-left: 10px;
+}
