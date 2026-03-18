@@ -1,10 +1,18 @@
 // --- TWOJA BAZA DANYCH (BEZ ZMIAN) ---
 const guestList = {
-    "kuba123": { name: "Kuba", task: "catering" },
-    "ania789": { name: "Ania", task: "fire" },
-    "marek456": { name: "Marek", task: "party" }
+    "kuba123": { name: "Kuba", task: "ognisko" },
+    "ania789": { name: "Ania", task: "jedzenie" },
+    "marek456": { name: "Marek", task: "impreza" },
+    "leniwygosc": { name: "Tomek" } // Brak zadania - sekcja po prostu się nie wyświetli
 };
 
+// --- SŁOWNIK ZADAŃ ---
+// Tu wpisujesz własne teksty. Jeśli ktoś ma mieć inne zadanie, dodaj tu nową linijkę.
+const taskDictionary = {
+    "ognisko": "[SEKCJA: PIROTECHNIKA]\nTwoim zadaniem jest nadzorowanie strefy ogniska. Zadbaj o to, by płomień nie zgasł, a dym nie zdradził naszej pozycji.",
+    "jedzenie": "[SEKCJA: ZAOPATRZENIE]\nTwój przydział to logistyka żywnościowa. Odpowiadasz za to, by żaden agent nie operował na pustym żołądku.",
+    "impreza": "[SEKCJA: MORALE]\nTwoje zadanie to utrzymanie wysokiego poziomu energii. Masz dbać o to, by parkiet nie był pusty."
+};
 
 
 // --- KOD EFEKTU MATRIX (CANVAS) ---
@@ -147,8 +155,26 @@ function showInvitation(code) {
     // Ustawiamy białe znaki, żeby \n działało w HTML
     welcomeElement.style.whiteSpace = "pre-line";
 
-    // Odpalamy efekt deszyfrowania dla całego bloku
+    // Odpalamy efekt deszyfrowania dla powitania
     decryptEffect('welcome-text', coolGreeting);
+
+    // --- NOWA LOGIKA ZADAŃ ---
+    const taskSection = document.getElementById('task-section');
+    const taskContent = document.getElementById('task-content');
+
+    // Jeśli gość ma przypisane zadanie i istnieje ono w słowniku
+    if (user.task && taskDictionary[user.task]) {
+        taskSection.style.display = 'block'; // Pokazujemy div
+        taskContent.style.whiteSpace = "pre-line"; // Żeby \n działało
+        // Odpalamy deszyfrowanie zadania (opóźnione o ułamek sekundy dla lepszego efektu)
+        setTimeout(() => {
+            decryptEffect('task-content', taskDictionary[user.task]);
+        }, 500);
+    } else {
+        // Jeśli nie ma zadania, ukrywamy sekcję
+        taskSection.style.display = 'none';
+    }
+    // -------------------------
 
     // Reszta Twojego kodu...
     document.getElementById('login-section').style.display = 'none';

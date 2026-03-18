@@ -311,3 +311,28 @@ button:hover {
     margin-top: 40px;
     padding-bottom: 20px;
 }
+
+/* --- STYLIZACJA ZADAŃ --- */
+#task-section {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px dashed #ff9900;
+    /* Ostrzegawczy pomarańcz */
+    background: rgba(255, 153, 0, 0.05);
+    text-align: left;
+}
+
+#task-title {
+    color: #ff9900;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(255, 153, 0, 0.5);
+    font-family: monospace;
+}
+
+#task-content {
+    color: #fff;
+    font-family: monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
