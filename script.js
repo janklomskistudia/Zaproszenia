@@ -3,6 +3,7 @@ const guestList = {
     "kuba123": { name: "Kuba", task: "ognisko" },
     "ania789": { name: "Ania", task: "jedzenie" },
     "marek456": { name: "Marek", task: "impreza" },
+    "agatka526": { name: "Agata Kuczyńska", task: "jedzenie" },
     "leniwygosc": { name: "Tomek" } // Brak zadania - sekcja po prostu się nie wyświetli
 };
 
