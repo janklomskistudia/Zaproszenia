@@ -30,7 +30,7 @@
 
     <div id="invitation-section" style="display: none;">
         <div id="welcome-container"
-            style="text-align: left; margin-bottom: 20px; border-bottom: 1px solid #00ff46; padding-bottom: 10px; height: 14vh;">
+            style="text-align: left; margin-bottom: 20px; border-bottom: 1px solid #00ff46; padding-bottom: 10px; height: 6vh;">
             <h3 id="welcome-text" style="font-family: monospace; font-size: 1.5rem;">
                 </h1>
         </div>
@@ -82,7 +82,21 @@
 
         <div id="task-section" style="display: none;">
             <h3 id="task-title">> TWOJE WYTYCZNE OPERACYJNE</h3>
-            <p id="task-content"></p>
+            <p id="task-header" style="color: #ff9900; font-weight: bold; margin-bottom: 5px;"></p>
+            <p id="task-body" style="color: #fff;"></p>
+
+            <div class="confirmation-box" style="margin-top: 15px;">
+                <label class="hacker-checkbox">
+                    <input type="checkbox" id="task-confirm-checkbox" onchange="toggleExtraInfo()">
+                    <span class="checkmark"></span>
+                    PODEJMUJE SIE ZADANIA
+                </label>
+            </div>
+
+            <div id="extra-info-box" style="display: none; margin-top: 15px;">
+                <p id="contact-agent-text">>> PO DALSZE INFORMACJE SKONTAKTUJ SIĘ Z AGENTEM: <span
+                        id="target-agent"></span></p>
+            </div>
         </div>
 
         <div id="map-section">

@@ -336,3 +336,69 @@ button:hover {
     font-size: 0.95rem;
     line-height: 1.5;
 }
+
+#task-section {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px dashed #ff9900;
+    background: rgba(255, 153, 0, 0.05);
+    text-align: left;
+}
+
+#task-title {
+    color: #ff9900;
+    margin-bottom: 10px;
+    font-family: monospace;
+}
+
+#task-content {
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Styl hakerskiego checkboxa */
+.hacker-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #ff9900;
+    margin-top: 15px;
+    font-family: monospace;
+}
+
+.hacker-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ff9900;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+}
+
+.hacker-checkbox input:checked+.checkmark {
+    background: #ff9900;
+}
+
+.hacker-checkbox input:checked+.checkmark::after {
+    content: "X";
+    color: black;
+    position: absolute;
+    left: 4px;
+    top: -1px;
+    font-weight: bold;
+}
+
+#extra-info-box {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 153, 0, 0.3);
+    color: #ff9900;
+    font-weight: bold;
+    font-family: monospace;
+}

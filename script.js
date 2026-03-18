@@ -9,10 +9,20 @@ const guestList = {
 // --- SŁOWNIK ZADAŃ ---
 // Tu wpisujesz własne teksty. Jeśli ktoś ma mieć inne zadanie, dodaj tu nową linijkę.
 const taskDictionary = {
-    "ognisko": "[SEKCJA: PIROTECHNIKA]\nTwoim zadaniem jest nadzorowanie strefy ogniska. Zadbaj o to, by płomień nie zgasł, a dym nie zdradził naszej pozycji.",
-    "jedzenie": "[SEKCJA: ZAOPATRZENIE]\nTwój przydział to logistyka żywnościowa. Odpowiadasz za to, by żaden agent nie operował na pustym żołądku.",
-    "impreza": "[SEKCJA: MORALE]\nTwoje zadanie to utrzymanie wysokiego poziomu energii. Masz dbać o to, by parkiet nie był pusty."
+    "ognisko": {
+        desc: "[SEKCJA: PIROTECHNIKA]\nZadbaj o podpałkę i bezpieczeństwo strefy ognia.",
+        contact: "KPT. JAN"
+    },
+    "jedzenie": {
+        desc: "[SEKCJA: CATERING]\nPomoc przy rozstawianiu prowiantu w sektorze B.",
+        contact: "SIERŻ. MAREK"
+    },
+    "impreza": {
+        desc: "[SEKCJA: MORALE]\nTwoim zadaniem jest pilnowanie głośności i playlisty.",
+        contact: "AGENT X"
+    }
 };
+
 
 
 // --- KOD EFEKTU MATRIX (CANVAS) ---
@@ -147,38 +157,55 @@ function loginUser(code) {
 
 function showInvitation(code) {
     const user = guestList[code];
-    const welcomeElement = document.getElementById('welcome-text');
+    if (!user) return;
 
-    // Tworzymy wieloliniowy tekst powitalny
-    const coolGreeting = `[SYSTEM]: ZALOGOWANO POMYŚLNIE\n[AGENT]: ${user.name.toUpperCase()}\n`;
-
-    // Ustawiamy białe znaki, żeby \n działało w HTML
-    welcomeElement.style.whiteSpace = "pre-line";
-
-    // Odpalamy efekt deszyfrowania dla powitania
-    decryptEffect('welcome-text', coolGreeting);
-
-    // --- NOWA LOGIKA ZADAŃ ---
-    const taskSection = document.getElementById('task-section');
-    const taskContent = document.getElementById('task-content');
-
-    // Jeśli gość ma przypisane zadanie i istnieje ono w słowniku
-    if (user.task && taskDictionary[user.task]) {
-        taskSection.style.display = 'block'; // Pokazujemy div
-        taskContent.style.whiteSpace = "pre-line"; // Żeby \n działało
-        // Odpalamy deszyfrowanie zadania (opóźnione o ułamek sekundy dla lepszego efektu)
-        setTimeout(() => {
-            decryptEffect('task-content', taskDictionary[user.task]);
-        }, 500);
-    } else {
-        // Jeśli nie ma zadania, ukrywamy sekcję
-        taskSection.style.display = 'none';
-    }
-    // -------------------------
-
-    // Reszta Twojego kodu...
     document.getElementById('login-section').style.display = 'none';
     document.getElementById('invitation-section').style.display = 'block';
+
+    // 1. Powitanie (bez zmian)
+    const welcomeElement = document.getElementById('welcome-text');
+    if (welcomeElement) {
+        const coolGreeting = `[SYSTEM]: ZALOGOWANO\n[AGENT]: ${user.name.toUpperCase()}\n`;
+        welcomeElement.style.whiteSpace = "pre-line";
+        decryptEffect('welcome-text', coolGreeting);
+    }
+
+    // 2. Obsługa zadań - NOWA LOGIKA ROZDZIELANIA
+    const taskSection = document.getElementById('task-section');
+    const taskHeader = document.getElementById('task-header');
+    const taskBody = document.getElementById('task-body');
+    const targetAgent = document.getElementById('target-agent');
+
+    if (user.task && taskDictionary[user.task]) {
+        taskSection.style.display = 'block';
+
+        // Wyciągamy dane ze słownika
+        const fullDesc = taskDictionary[user.task].desc;
+
+        // Dzielimy tekst na linie
+        const lines = fullDesc.split('\n');
+        const headerText = lines[0]; // Pierwsza linia: [SEKCJA: ...]
+        const bodyText = lines.slice(1).join('\n'); // Wszystko poniżej pierwszej linii
+
+        // EFEKT: Tylko nagłówek się deszyfruje
+        taskHeader.innerText = ""; // Czyścimy przed startem
+        decryptEffect('task-header', headerText);
+
+        // TREŚĆ: Pojawia się od razu (lub z minimalnym opóźnieniem)
+        taskBody.style.whiteSpace = "pre-line";
+        taskBody.innerText = bodyText;
+
+        if (targetAgent) {
+            targetAgent.innerText = taskDictionary[user.task].contact;
+        }
+
+        // Reset checkboxa
+        document.getElementById('task-confirm-checkbox').checked = false;
+        document.getElementById('extra-info-box').style.display = 'none';
+
+    } else if (taskSection) {
+        taskSection.style.display = 'none';
+    }
 }
 
 function logout() {
@@ -215,32 +242,50 @@ function launchConfetti() {
         colors: ['#00ff46', '#111', '#fff']
     });
 }
+const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSeZgySCSFoMG-Aq8JilGwshSpi7CDVWk_2inSZi_DOkScFK5g/formResponse";
 
 window.onload = init;
 
 function sendRSVP(decision) {
     const userCode = localStorage.getItem('guestCode');
+    const user = guestList[userCode];
+    const userName = user ? user.name : "NIEZNANY";
 
-    // Zastąp te dane swoimi:
-    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSdU1ZM-U0bcX5gb89k-cbU8Av3dy9xJKD5u7rvQ67sNv31JBg/formResponse";
-    const entryCodeID = "entry.1911346163";  // ID z Twojego screena dla pola KOD
-    const entryStatusID = "entry.855752844"; // ID z Twojego screena dla pola STATUS
+    const isTaskAccepted = document.getElementById('task-confirm-checkbox').checked;
+    const taskStatus = isTaskAccepted ? "TAK" : "BRAK";
+
+    // TWOJE DANE (ID zweryfikowane z Twojego screena)
+    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSeZgySCSFoMG-Aq8JilGwshSpi7CDVWk_2inSZi_DOkScFK5g/formResponse";
+    const entryCodeID = "entry.2056322567";
+    const entryNameID = "entry.1508024900";
+    const entryTaskID = "entry.1814490593";
+    const entryStatusID = "entry.1686139881";
 
     const formData = new FormData();
+    // KLUCZOWE: Lewa strona to ID z Google, prawa to zmienna z JS
     formData.append(entryCodeID, userCode);
+    formData.append(entryNameID, userName);
     formData.append(entryStatusID, decision);
+    formData.append(entryTaskID, taskStatus);
 
     fetch(formURL, {
         method: "POST",
         mode: "no-cors",
         body: formData
     }).then(() => {
-        // Zamiast alertu, zróbmy coś hakerskiego!
-        document.getElementById('rsvp-section').innerHTML = "<h2 style='color: #00ff46;'>STATUS: TRANSMISJA ZAKOŃCZONA. DO ZOBACZENIA!</h2>";
+        // Zmiana napisu po wysłaniu
+        const rsvpSection = document.getElementById('rsvp-section');
+        if (rsvpSection) {
+            rsvpSection.innerHTML = `
+                <h2 style='color: #00ff46;'>STATUS: TRANSMISJA ZAKOŃCZONA.</h2>
+                <p style='color: #ff9900;'>Witaj w zespole, ${userName}.</p>
+            `;
+        }
     }).catch(err => {
         console.error("Błąd transmisji:", err);
     });
 }
+
 function decryptEffect(elementId, finalText) {
     const chars = "!@#$%^&*()_+1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const element = document.getElementById(elementId);
@@ -283,5 +328,16 @@ function playHackSound(type) {
         oscillator.start();
         gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.5);
         oscillator.stop(audioCtx.currentTime + 0.5);
+    }
+}
+
+function toggleExtraInfo() {
+    const isChecked = document.getElementById('task-confirm-checkbox').checked;
+    const infoBox = document.getElementById('extra-info-box');
+
+    if (isChecked) {
+        infoBox.style.display = 'block';
+    } else {
+        infoBox.style.display = 'none';
     }
 }
