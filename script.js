@@ -5,6 +5,7 @@ const guestList = {
     "marek456": { name: "Marek", task: "impreza" },
     "agatka526": { name: "Agata Kuczyńska", task: "jedzenie" },
     "macius2137": { name: "Maciej Wojtyła", task: "impreza" },
+    "wojtaskrul1": { name: "Wojciech Prigara", task: "porzadkowi" },
 
 };
 
