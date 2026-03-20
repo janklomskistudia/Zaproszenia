@@ -30,7 +30,7 @@
 
     <div id="invitation-section" style="display: none;">
         <div id="welcome-container"
-            style="text-align: left; margin-bottom: 20px; border-bottom: 1px solid #00ff46; padding-bottom: 10px; height: 6vh;">
+            style="text-align: left; margin-bottom: 20px; border-bottom: 1px solid #00ff46; padding-bottom: 10px;">
             <h3 id="welcome-text" style="font-family: monospace; font-size: 1.5rem;">
                 </h1>
         </div>
@@ -82,6 +82,10 @@
 
         <div id="task-section" style="display: none;">
             <h3 id="task-title">> TWOJE WYTYCZNE OPERACYJNE</h3>
+            <p
+                style="font-family: monospace; font-size: 0.5rem; color: #ffff; opacity: 0.7; margin-top: -10px; margin-bottom: 15px; text-align: center;">
+                (Każdego proszę o pomoc w mini zadaniu na urodzinach.)
+            </p>
             <p id="task-header" style="color: #ff9900; font-weight: bold; margin-bottom: 5px;"></p>
             <p id="task-body" style="color: #fff;"></p>
 
@@ -89,7 +93,7 @@
                 <label class="hacker-checkbox">
                     <input type="checkbox" id="task-confirm-checkbox" onchange="toggleExtraInfo()">
                     <span class="checkmark"></span>
-                    PODEJMUJE SIE ZADANIA
+                    KLIKNIJ BY PODJĄĆ SIĘ ZADANIA
                 </label>
             </div>
 
@@ -100,7 +104,7 @@
 
         <div id="map-section">
             <h3 style="color: #00ff46; margin-bottom: 10px;margin-top: 7px;margin-bottom: 0px;">> LOKALIZACJA BAZY:</h3>
-            <div class="briefing-text">
+            <div class="briefing-text" style="margin-top: 0;">
                 <p style="margin-top: 0;">Parking dla aut bojowych znajduję się pod świetlicą</p>
             </div>
             <iframe
@@ -111,6 +115,10 @@
         </div>
         <div id="rsvp-section">
             <h3 style="margin: 10px;">CZY PRZYJMUJESZ ZAPROSZNIE?</h3>
+            <p
+                style="font-family: monospace; font-size: 0.8rem; color: #ffff; opacity: 0.7; margin-top: -10px; margin-bottom: 15px; text-align: center;">
+                (Zaznacz odpowiedź)
+            </p>
             <button onclick="sendRSVP('Będę')" style="background-color: #00ff46; color: black;">
                 POTWIERDZAM UDZIAŁ
             </button>

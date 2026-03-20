@@ -5,8 +5,7 @@ const guestList = {
     "marek456": { name: "Marek", task: "impreza" },
     "agatka526": { name: "Agata Kuczyńska", task: "jedzenie" },
     "macius2137": { name: "Maciej Wojtyła", task: "impreza" },
-    "wojtaskrul1": { name: "Wojciech Prigara", task: "porzadkowi" },
-
+    "wojtaskrul1": { name: "Wojciech Prigara", task: "porzadkowi" }
 };
 
 // --- SŁOWNIK ZADAŃ ---
@@ -34,11 +33,11 @@ const taskDictionary = {
     },
     "dokumentacja": {
         desc: "[SEKCJA: ARCHIWUM]\nTwoim zadaniem jest przechwytywanie obrazu. Rób zdjęcia, nagrywaj dowody zabawy. Pamiętaj: co wydarzyło się w Bazie Alfa, zostaje w chmurze (którą udostępnimy po misji).",
-        contact: "?"
+        contact: "AGENTEM JK"
     },
     "porzadkowi": {
         desc: "[SEKCJA: CZYSZCZENIE ŚLADÓW]\nOperacja musi pozostać nieuchwytna. Twoim zadaniem jest dbanie o to, by puste opakowania trafiały do czarnych worków w sektorze G. Po zakończeniu misji pomoc w przywróceniu Bazy Alfa do stanu pierwotnego.",
-        contact: "?"
+        contact: "WOJCIECH PRIGARA"
     },
 };
 
