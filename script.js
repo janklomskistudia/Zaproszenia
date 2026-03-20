@@ -1,44 +1,76 @@
 // --- TWOJA BAZA DANYCH (BEZ ZMIAN) ---
 const guestList = {
-    "kuba123": { name: "Kuba", task: "ognisko" },
-    "ania789": { name: "Ania", task: "jedzenie" },
-    "marek456": { name: "Marek", task: "impreza" },
-    "agatka526": { name: "Agata Kuczyńska", task: "jedzenie" },
-    "macius2137": { name: "Maciej Wojtyła", task: "impreza" },
-    "wojtaskrul1": { name: "Wojciech Prigara", task: "porzadkowi" }
+    "dominis720": { "name": "Dominik Brzeziński", "task": "ognisko" },
+    "krzysiu1": { "name": "Krzysiu Januszewski", "task": "ognisko" },
+    "aniela2": { "name": "Aniela Kełpin", "task": "zaopatrzenie" },
+    "maciek3": { "name": "Maciej Wojtyła", "task": "impreza" },
+    "jeremi4": { "name": "Jeremi Śliwka", "task": "porzadkowi" },
+    "krzysztof5": { "name": "Krzysztof Nowakowski", "task": "dokumentacja" },
+    "robert6": { "name": "Robert Rzoska", "task": "ognisko" },
+    "bartek7": { "name": "Brzoza", "task": "naglosnienie" },
+    "wojtek8": { "name": "Wojciech Prigara", "task": "porzadkowi" },
+    "lukasz10": { "name": "Łukasz Stępniak", "task": "dokumentacja" },
+    "weronika11": { "name": "Weronika Forgiel", "task": "zaopatrzenie" },
+    "karol12": { "name": "Karol Adamowicz", "task": "ognisko" },
+    "natalka13": { "name": "Natalka Łajewska", "task": "jedzenie" },
+    "mati14": { "name": "Mati Łajewski", "task": "nagłośnienie" },
+    "szczepan15": { "name": "Szczepan", "task": "porzadkowi" },
+    "tymoteusz16": { "name": "Tymoteusz Balwicki", "task": "porzadkowi" },
+    "michal17": { "name": "Michał Zacharzewski", "task": "ognisko" },
+    "asia18": { "name": "Asia Brzezińska", "task": "jedzenie" },
+    "klaudia19": { "name": "Klaudia Boike", "task": "impreza" },
+    "ania20": { "name": "Ania Woroniecka", "task": "zaopatrzenie" },
+    "agata21": { "name": "Agata Kuczyńska", "task": "zaopatrzenie" },
+    "piotrek22": { "name": "Piotrek Pawiłojć", "task": "naglosnienie" },
+    "julia23": { "name": "Julia Pawiłojć", "task": "jedzenie" },
+    "natalia24": { "name": "Natalia Pawiłojć", "task": "jedzenie" },
+    "krzysztof25": { "name": "Krzysztof Kłomski", "task": "ognisko" },
+    "ola26": { "name": "Aleksandra Kłomska", "task": "jedzenie" },
+    "horodecki27": { "name": "Horodecki", "task": "nagłośnienie" },
+    "alex28": { "name": "Alexander Grajewski", "task": "protokol" },
+    "bartek29": { "name": "Bartłomiej Filipkowski", "task": "protokol" },
+    "wiktor30": { "name": "Wiktor Kaczmarek", "task": "protokol" }
 };
-
 // --- SŁOWNIK ZADAŃ ---
 // Tu wpisujesz własne teksty. Jeśli ktoś ma mieć inne zadanie, dodaj tu nową linijkę.
 const taskDictionary = {
     "ognisko": {
-        desc: "[SEKCJA: PIROTECHNIKA]\n21 wiek a my dalej w erze gdzie gdzie jedzenie robimy na ognisku. Pomóż cywilizowanym ludziom zrobić spaloną kiełbaskę. Pamiętaj o zachowaniu zasad BHP",
+        desc: "[SEKCJA: PIROTECHNIKA 🔥]\n21 wiek a my dalej w erze gdzie gdzie jedzenie robimy na ognisku. Pomóż cywilizowanym ludziom zrobić spaloną kiełbaskę. Pamiętaj o zachowaniu zasad BHP",
         contact: "KRZYSZTOF KŁOMSKI"
     },
     "zaopatrzenie": {
-        desc: "[SEKCJA: ZAOPATRZENIOWA]\nSam Jezus jak się skończyło wino to musiał coś z tym zrobić. Stoły nie mogą być puste. Zapewnij by na stołach nie brakowało zaopatrzenia (zaopatrzenie będzie zapewnione)",
+        desc: "[SEKCJA: ZAOPATRZENIOWA 🧺]\nSam Jezus jak się skończyło wino to musiał coś z tym zrobić. Stoły nie mogą być puste. Zapewnij by na stołach nie brakowało zaopatrzenia (zaopatrzenie będzie zapewnione)",
         contact: "AGATA KUCZYŃSKA"
     },
     "jedzenie": {
-        desc: "[SEKCJA: JEDZONKO]\nNie samym chlebem (i kiełbasą) żyje człowiek. Prośba by w ramach prezentu zrobić jedną miskę jakiejś prostej sałatki / blaszkę ciasta dla urozmaicenia diety biesiadników",
+        desc: "[SEKCJA: UZUPEŁNIANIA KALORI 🍔]\nNie samym chlebem (i kiełbasą) żyje człowiek. Prośba by w ramach prezentu zrobić jedną miskę jakiejś prostej sałatki / blaszkę ciasta dla urozmaicenia diety biesiadników",
         contact: "AGATA KUCZYŃSKA"
     },
     "impreza": {
-        desc: "[SEKCJA: OBROŃCÓW IMPREZY]\nTwoim zadaniem jest pilnowanie głośności i playlisty. Zabwianie gości to nasz piorytet!",
+        desc: "[SEKCJA: OBROŃCÓW IMPREZY 🎉]\nTwoim zadaniem jest pilnowanie głośności i playlisty. Zabwianie gości to nasz piorytet!",
         contact: "MACIEK WOJTYŁA"
     },
     "naglosnienie": {
-        desc: "[SEKCJA: ŁUBUDUBU]\nDobra muzyka i światło to podstawa. Reszte zostawiam w waszych rękach",
+        desc: "[SEKCJA: ŁUBUDUBU 🎧]\nDobra muzyka i światło to podstawa. Reszte zostawiam w waszych rękach",
         contact: "MARCIN HORODECKI"
     },
     "dokumentacja": {
-        desc: "[SEKCJA: ARCHIWUM]\nTwoim zadaniem jest przechwytywanie obrazu. Rób zdjęcia, nagrywaj dowody zabawy. Pamiętaj: co wydarzyło się w Bazie Alfa, zostaje w chmurze (którą udostępnimy po misji).",
+        desc: "[SEKCJA: ARCHIWUM 📸]\nTwoim zadaniem jest przechwytywanie obrazu. Rób zdjęcia, nagrywaj dowody zabawy. Pamiętaj: co wydarzyło się w Bazie Alfa, zostaje w chmurze (którą udostępnimy po misji).",
         contact: "AGENTEM JK"
     },
     "porzadkowi": {
-        desc: "[SEKCJA: CZYSZCZENIE ŚLADÓW]\nOperacja musi pozostać nieuchwytna. Twoim zadaniem jest dbanie o to, by puste opakowania trafiały do czarnych worków w sektorze G. Po zakończeniu misji pomoc w przywróceniu Bazy Alfa do stanu pierwotnego.",
+        desc: "[SEKCJA: CZYSZCZENIE ŚLADÓW 🗑️]\nOperacja musi pozostać nieuchwytna. Twoim zadaniem jest dbanie o to, by puste opakowania trafiały do czarnych worków w sektorze G. Po zakończeniu misji pomoc w przywróceniu Bazy Alfa do stanu pierwotnego.",
         contact: "WOJCIECH PRIGARA"
     },
+    "specjalni": {
+        desc: "[SEKCJA: ZADANIE SPECJALNE]\nOperacja musi pozostać nieuchwytna. Twoim zadaniem jest dbanie o to, by puste opakowania trafiały do czarnych worków w sektorze G. Po zakończeniu misji pomoc w przywróceniu Bazy Alfa do stanu pierwotnego.",
+        contact: "WOJCIECH PRIGARA"
+    },
+    "protokol": {
+        desc: "[SEKCJA: PROTOKOŁU DYPLOMATYCZNEGO 🕶]\nPierwsza linia kontaktu. Twoim zadaniem jest autoryzacja agentów przybywających do Bazy Alfa. W ramach zadania otrzymasz też różne zadania poboczne.",
+        contact: "CENTRALA"
+    }
+
 };
 
 
