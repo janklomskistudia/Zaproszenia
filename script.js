@@ -1,35 +1,35 @@
 // --- TWOJA BAZA DANYCH (BEZ ZMIAN) ---
 const guestList = {
     "dominis720": { "name": "Dominik Brzeziński", "task": "ognisko" },
-    "krzysiu1": { "name": "Krzysiu Januszewski", "task": "ognisko" },
-    "aniela2": { "name": "Aniela Kełpin", "task": "zaopatrzenie" },
-    "maciek3": { "name": "Maciej Wojtyła", "task": "impreza" },
-    "jeremi4": { "name": "Jeremi Śliwka", "task": "porzadkowi" },
-    "krzysztof5": { "name": "Krzysztof Nowakowski", "task": "dokumentacja" },
-    "robert6": { "name": "Robert Rzoska", "task": "ognisko" },
-    "bartek7": { "name": "Brzoza", "task": "naglosnienie" },
-    "wojtek8": { "name": "Wojciech Prigara", "task": "porzadkowi" },
-    "lukasz10": { "name": "Łukasz Stępniak", "task": "dokumentacja" },
-    "weronika11": { "name": "Weronika Forgiel", "task": "zaopatrzenie" },
-    "karol12": { "name": "Karol Adamowicz", "task": "ognisko" },
-    "natalka13": { "name": "Natalka Łajewska", "task": "jedzenie" },
-    "mati14": { "name": "Mati Łajewski", "task": "nagłośnienie" },
-    "szczepan15": { "name": "Szczepan", "task": "porzadkowi" },
-    "tymoteusz16": { "name": "Tymoteusz Balwicki", "task": "porzadkowi" },
-    "michal17": { "name": "Michał Zacharzewski", "task": "ognisko" },
-    "asia18": { "name": "Asia Brzezińska", "task": "jedzenie" },
-    "klaudia19": { "name": "Klaudia Boike", "task": "impreza" },
-    "ania20": { "name": "Ania Woroniecka", "task": "zaopatrzenie" },
-    "agata21": { "name": "Agata Kuczyńska", "task": "zaopatrzenie" },
-    "piotrek22": { "name": "Piotrek Pawiłojć", "task": "naglosnienie" },
-    "julia23": { "name": "Julia Pawiłojć", "task": "jedzenie" },
-    "natalia24": { "name": "Natalia Pawiłojć", "task": "jedzenie" },
-    "krzysztof25": { "name": "Krzysztof Kłomski", "task": "ognisko" },
-    "ola26": { "name": "Aleksandra Kłomska", "task": "jedzenie" },
-    "horodecki27": { "name": "Horodecki", "task": "nagłośnienie" },
-    "alex28": { "name": "Alexander Grajewski", "task": "protokol" },
-    "bartek29": { "name": "Bartłomiej Filipkowski", "task": "protokol" },
-    "wiktor30": { "name": "Wiktor Kaczmarek", "task": "protokol" }
+    "krzysztof_wielki": { "name": "Krzysiu Januszewski", "task": "ognisko" },
+    "anielka100": { "name": "Aniela Kełpin", "task": "zaopatrzenie" },
+    "mistrzmaciej": { "name": "Maciej Wojtyła", "task": "impreza" },
+    "jeremis": { "name": "Jeremi Śliwka", "task": "porzadkowi" },
+    "wielki_krzysztof": { "name": "Krzysztof Nowakowski", "task": "dokumentacja" },
+    "sedzia_anna_maria_rzoska": { "name": "Robert Rzoska", "task": "ognisko" },
+    "stalowe_drzewo": { "name": "Brzoza", "task": "naglosnienie" },
+    "wielki_mis": { "name": "Wojciech Prigara", "task": "porzadkowi" },
+    "lukasz_pucharz": { "name": "Łukasz Stępniak", "task": "dokumentacja" },
+    "weronika200": { "name": "Weronika Forgiel", "task": "zaopatrzenie" },
+    "dobry_karolek": { "name": "Karol Adamowicz", "task": "ognisko" },
+    "natalia_": { "name": "Natalka Łajewska", "task": "jedzenie" },
+    "porzadny_mati": { "name": "Mati Łajewski", "task": "impreza" },
+    "szczep_winny": { "name": "Szczepan", "task": "porzadkowi" },
+    "beter_call_tym": { "name": "Tymoteusz Balwicki", "task": "porzadkowi" },
+    "dr.strage": { "name": "Michał Zacharzewski", "task": "ognisko" },
+    "asia_wielka": { "name": "Asia Brzezińska", "task": "jedzenie" },
+    "mama_klaudia": { "name": "Klaudia Boike", "task": "impreza" },
+    "ukochana_najwieksza_najpiekniejsza_najslodsza_najlepsza": { "name": "Ania Woroniecka", "task": "zaopatrzenie" },
+    "nieobecna": { "name": "Agata Kuczyńska", "task": "zaopatrzenie" },
+    "dobre_nogi": { "name": "Piotrek Pawiłojć", "task": "naglosnienie" },
+    "ms.dżuljet": { "name": "Julia Pawiłojć", "task": "jedzenie" },
+    "pani_natalia": { "name": "Natalia Pawiłojć", "task": "jedzenie" },
+    "i_use_arch_btw": { "name": "Krzysztof Kłomski", "task": "ognisko" },
+    "schwester": { "name": "Aleksandra Kłomska", "task": "jedzenie" },
+    "na_tablicy_jest_blad": { "name": "Marcin Horodecki", "task": "naglosnienie" },
+    "pozeracz_monsterow_3000": { "name": "Alexander Grajewski", "task": "protokol" },
+    "batlomiej": { "name": "Bartosz Filipkowski", "task": "protokol" },
+    "zadanie_bojowe": { "name": "Wiktor Kaczmarek", "task": "protokol" }
 };
 // --- SŁOWNIK ZADAŃ ---
 // Tu wpisujesz własne teksty. Jeśli ktoś ma mieć inne zadanie, dodaj tu nową linijkę.
@@ -40,11 +40,11 @@ const taskDictionary = {
     },
     "zaopatrzenie": {
         desc: "[SEKCJA: ZAOPATRZENIOWA 🧺]\nSam Jezus jak się skończyło wino to musiał coś z tym zrobić. Stoły nie mogą być puste. Zapewnij by na stołach nie brakowało zaopatrzenia (zaopatrzenie będzie zapewnione)",
-        contact: "AGATA KUCZYŃSKA"
+        contact: "ANNA WORONIECKA"
     },
     "jedzenie": {
         desc: "[SEKCJA: UZUPEŁNIANIA KALORI 🍔]\nNie samym chlebem (i kiełbasą) żyje człowiek. Prośba by w ramach prezentu zrobić jedną miskę jakiejś prostej sałatki / blaszkę ciasta dla urozmaicenia diety biesiadników",
-        contact: "AGATA KUCZYŃSKA"
+        contact: "CENTRALA - JAN KŁOMSKI"
     },
     "impreza": {
         desc: "[SEKCJA: OBROŃCÓW IMPREZY 🎉]\nTwoim zadaniem jest pilnowanie głośności i playlisty. Zabwianie gości to nasz piorytet!",
@@ -63,7 +63,7 @@ const taskDictionary = {
         contact: "WOJCIECH PRIGARA"
     },
     "specjalni": {
-        desc: "[SEKCJA: ZADANIE SPECJALNE]\nOperacja musi pozostać nieuchwytna. Twoim zadaniem jest dbanie o to, by puste opakowania trafiały do czarnych worków w sektorze G. Po zakończeniu misji pomoc w przywróceniu Bazy Alfa do stanu pierwotnego.",
+        desc: "[SEKCJA: ZADANIE SPECJALNE 🕶]\nOperacja musi pozostać nieuchwytna. Twoim zadaniem jest dbanie o to, by puste opakowania trafiały do czarnych worków w sektorze G. Po zakończeniu misji pomoc w przywróceniu Bazy Alfa do stanu pierwotnego.",
         contact: "WOJCIECH PRIGARA"
     },
     "protokol": {
