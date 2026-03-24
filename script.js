@@ -12,7 +12,7 @@ const guestList = {
     "lukasz_pucharz": { "name": "Łukasz Stępniak", "task": "dokumentacja" },
     "weronika200": { "name": "Weronika Forgiel", "task": "zaopatrzenie" },
     "dobry_karolek": { "name": "Karol Adamowicz", "task": "ognisko" },
-    "natalia_": { "name": "Natalka Łajewska", "task": "jedzenie" },
+    "natalia_2000": { "name": "Natalka Łajewska", "task": "jedzenie" },
     "porzadny_mati": { "name": "Mati Łajewski", "task": "impreza" },
     "szczep_winny": { "name": "Szczepan", "task": "porzadkowi" },
     "beter_call_tym": { "name": "Tymoteusz Balwicki", "task": "porzadkowi" },
@@ -68,7 +68,7 @@ const taskDictionary = {
     },
     "protokol": {
         desc: "[SEKCJA: PROTOKOŁU DYPLOMATYCZNEGO 🕶]\nPierwsza linia kontaktu. Twoim zadaniem jest autoryzacja agentów przybywających do Bazy Alfa. W ramach zadania otrzymasz też różne zadania poboczne.",
-        contact: "CENTRALA"
+        contact: "CENTRALA - JAN KLOMSKI"
     }
 
 };
