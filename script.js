@@ -30,7 +30,7 @@ const guestList = {
     "pozeracz_monsterow_3000": { "name": "Alexander Grajewski", "task": "protokol" },
     "batlomiej": { "name": "Bartosz Filipkowski", "task": "protokol" },
     "zadanie_bojowe": { "name": "Wiktor Kaczmarek", "task": "protokol" },
-    "juszkowska_dama": { "name": "Anna Literska", "task": "zapatrzenie" },
+    "juszkowska_dama": { "name": "Anna Literska", "task": "zaopatrzenie" },
     "rzymski_wojonik": { "name": "Kamil Małdachowski", "task": "ognisko" }
 
 };
