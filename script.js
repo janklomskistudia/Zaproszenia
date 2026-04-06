@@ -29,7 +29,10 @@ const guestList = {
     "na_tablicy_jest_blad": { "name": "Marcin Horodecki", "task": "naglosnienie" },
     "pozeracz_monsterow_3000": { "name": "Alexander Grajewski", "task": "protokol" },
     "batlomiej": { "name": "Bartosz Filipkowski", "task": "protokol" },
-    "zadanie_bojowe": { "name": "Wiktor Kaczmarek", "task": "protokol" }
+    "zadanie_bojowe": { "name": "Wiktor Kaczmarek", "task": "protokol" },
+    "juszkowska_dama": { "name": "Anna Literska", "task": "zapatrzenie" },
+    "rzymski_wojonik": { "name": "Kamil Małdachowski", "task": "ognisko" }
+
 };
 // --- SŁOWNIK ZADAŃ ---
 // Tu wpisujesz własne teksty. Jeśli ktoś ma mieć inne zadanie, dodaj tu nową linijkę.
