@@ -31,8 +31,8 @@ const guestList = {
     "batlomiej": { "name": "Bartosz Filipkowski", "task": "protokol" },
     "zadanie_bojowe": { "name": "Wiktor Kaczmarek", "task": "protokol" },
     "juszkowska_dama": { "name": "Anna Literska", "task": "zaopatrzenie" },
-    "rzymski_wojonik": { "name": "Kamil Małdachowski", "task": "ognisko" }
-
+    "rzymski_wojonik": { "name": "Kamil Małdachowski", "task": "ognisko" },
+    "jest_gitara_jest_muzyka": { "name": "Agnieszka Brzozoska", "task": "zaopatrzenie" },
 };
 // --- SŁOWNIK ZADAŃ ---
 // Tu wpisujesz własne teksty. Jeśli ktoś ma mieć inne zadanie, dodaj tu nową linijkę.
